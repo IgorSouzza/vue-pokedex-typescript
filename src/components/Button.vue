@@ -3,9 +3,9 @@
     <button
       type="button"
       @click="goTo()"
-      >
-        <slot />
-      </button>
+    >
+      <slot />
+    </button>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class HelloWorld extends Vue {
+export default class Button extends Vue {
   @Prop() private goToUrl!: string;
 
   goTo() {
