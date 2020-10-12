@@ -23,7 +23,6 @@ const store = new Vuex.Store({
 
         return pokemon;
       });
-      console.log(state.pokemons);
     },
     setNextPage(state, url) {
       state.nextPage = url;
