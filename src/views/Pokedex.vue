@@ -6,7 +6,7 @@
     >
       {{pokemon.name}}
     </div>
-    <Button @click.native="teste()">Load more</Button>
+    <Button @click.native="loadPokemons()">Load more</Button>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default class Pokedex extends Vue {
     if (this.$store.getters.pokemons <= 0) this.$router.push('/');
   }
 
-  async teste() {
+  async loadPokemons() {
     const nextUrl = this.$store.getters.nextPage;
     const pokemons = await api.get<ApiType<Pokemon>>(`/pokemon/?${nextUrl}`);
 
