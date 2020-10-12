@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button goToUrl="/pokedex">Go to Pokedex</Button>
+    <Button @click.native="goToPokedex()">Go to Pokedex</Button>
   </div>
 </template>
 
@@ -21,6 +21,13 @@ import { Pokemon } from '@/models/pokemon';
 export default class Home extends Vue {
   async mounted() {
     const pokemons = await api.get<ApiType<Pokemon>>('/pokemon');
+
+    this.$store.commit('setPokemons', pokemons.data.results);
+    this.$store.commit('setNextPage', pokemons.data.next.split('?')[1]);
+  }
+
+  goToPokedex() {
+    this.$router.push('/pokedex');
   }
 }
 </script>

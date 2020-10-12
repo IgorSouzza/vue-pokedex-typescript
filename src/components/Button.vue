@@ -2,7 +2,6 @@
   <div>
     <button
       type="button"
-      @click="goTo()"
     >
       <slot />
     </button>
@@ -10,16 +9,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Button extends Vue {
-  @Prop() private goToUrl!: string;
-
-  goTo() {
-    this.$router.push(this.goToUrl);
-  }
-}
+export default class Button extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
